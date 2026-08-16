@@ -98,13 +98,14 @@ class CustomCollector(object):
             
             print('cpu: ', self._jetson.cpu)
             g = GaugeMetricFamily('jetson_usage_cpu', 'CPU % schedutil', labels=['cpu'])
-            g.add_metric(['cpu_1'], self._jetson.cpu["cpu"][0]['user'])
-            g.add_metric(['cpu_2'], self._jetson.cpu["cpu"][1]['user'])
-            g.add_metric(['cpu_3'], self._jetson.cpu["cpu"][2]['user'])
-            g.add_metric(['cpu_4'], self._jetson.cpu["cpu"][3]['user'])
-            g.add_metric(['cpu_5'], self._jetson.cpu["cpu"][4]['user'])
-            g.add_metric(['cpu_6'], self._jetson.cpu["cpu"][5]['user'])
-
+            g.add_metric(['cpu_1'], self._jetson.cpu['CPU1'].get('val',0))
+            g.add_metric(['cpu_2'], self._jetson.cpu['CPU2'].get('val',0))
+            g.add_metric(['cpu_3'], self._jetson.cpu['CPU3'].get('val',0))
+            g.add_metric(['cpu_4'], self._jetson.cpu['CPU4'].get('val',0))
+            g.add_metric(['cpu_5'], self._jetson.cpu['CPU5'].get('val',0))
+            g.add_metric(['cpu_6'], self._jetson.cpu['CPU6'].get('val',0))
+            g.add_metric(['cpu_7'], self._jetson.cpu['CPU7'].get('val',0))
+            g.add_metric(['cpu_8'], self._jetson.cpu['CPU8'].get('val',0))
             yield g
 
             # 
